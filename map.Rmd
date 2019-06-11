@@ -1,0 +1,19 @@
+---
+title: "Creating_Map"
+author: "Paras"
+date: "11 June 2019"
+output: html_document
+---
+
+We are going to create map showing S&P BSE Mumbai office using BSE icon as marker.
+```{r}
+library(leaflet)
+bseIcon <- makeIcon(
+  iconUrl = "https://origin-beta.bseindia.com/include/images/BSE_LOGO.jpg",
+  iconWidth = 40*215/230, iconHeight = 40,
+  iconAnchorX = 40*215/230/2, iconAnchorY = 20
+)
+bseSite <- "<a href = 'https://www.bseindia.com/'> BSE Sensex Mumbai </a>"
+my_map <- leaflet() %>% addTiles() %>% addMarkers(lat = 18.929863, lng = 72.833427, icon = bseIcon, popup = bseSite)
+my_map
+```
